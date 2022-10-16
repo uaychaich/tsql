@@ -1,10 +1,11 @@
---746a | Main Clause | 2022-10-15 | Uaychai Chotjaratwanich
-SELECT TerritoryID, SUM(TotalDue)
-FROM Sales.SalesOrderHeader
-WHERE OnlineOrderFlag = 0
-GROUP BY TerritoryID
-HAVING TerritoryID > 5
-ORDER BY TerritoryID;
+--746a | Main Clause | 2022-10-16 | Uaychai Chotjaratwanich
+SELECT YEAR(a.OrderDate), SUM(b.LineTotal)
+FROM Sales.SalesOrderHeader a
+JOIN Sales.SalesOrderDetail b ON a.SalesOrderID = b.SalesOrderID
+WHERE a.OnlineOrderFlag = 1
+GROUP BY YEAR(a.OrderDate)
+HAVING SUM(b.LineTotal) > 5000000
+ORDER BY YEAR(a.OrderDate);
 
 
 --cd7b | Space, New Line, Colon, Semicolon,  Square Brackets| 2022-10-15 | Uaychai Chotjaratwanich

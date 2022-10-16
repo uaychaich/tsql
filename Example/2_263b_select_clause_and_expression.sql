@@ -41,11 +41,14 @@ SELECT IIF(5>3,1,0), IIF('U' < 'Uaychai',1,0);
 
 
 --268d | Formula + Logical Operator | 2022-10-15 | Uaychai Chotjaratwanich
-SELECT IIF(5>3 AND 4<3,1,0), IIF(5>3 OR 4<3,1,0);
+SELECT IIF(5>3 AND 4<3,1,0), IIF(5>3 OR 4<3,1,0), IIF(NOT 5>3,1,0);
 
 
---40cb | Formula + Special Operator for String | 2022-10-15 | Uaychai Chotjaratwanich
-SELECT IIF('Uaychai' LIKE 'U%',1,0);
+--40cb | Formula + Special Operator for String | 2022-10-16 | Uaychai Chotjaratwanich
+SELECT IIF('Uaychai' LIKE 'U%',1,0), 
+       IIF('Uaychai' LIKE 'U___',1,0), 
+       IIF('Uaychai' LIKE '[abc]%',1,0), 
+       IIF('Uaychai' LIKE '[^abc]%',1,0);
 
 
 --0251 | Formula + Special Operator for Numeric1 | 2022-10-15 | Uaychai Chotjaratwanich
