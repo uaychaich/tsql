@@ -75,9 +75,11 @@ SELECT SalesOrderID, TerritoryID,
 FROM Sales.SalesOrderHeader;
 
 
---e072 | How it work | 2022-10-15 | Uaychai Chotjaratwanich
-SELECT FirstName, LastName AS [Last Name], 
-       FirstName + LastName, 
-       LEFT(FirstName,3),
-       FirstName + 'Uaychai'
+--1391 | DISTINCT | 2022-10-20 | Uaychai Chotjaratwanich
+SELECT DISTINCT FirstName, LastName
+FROM Person.Person;
+
+
+--e072 | How it work | 2022-10-20 | Uaychai Chotjaratwanich
+SELECT DISTINCT FirstName, LastName, FirstName + LastName AS FullName
 FROM Person.Person;

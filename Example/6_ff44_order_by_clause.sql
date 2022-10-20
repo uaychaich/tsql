@@ -19,6 +19,12 @@ WHERE a.UnitPrice * a.OrderQty > 10000
 ORDER BY b.Name ASC, a.UnitPrice * a.OrderQty DESC, a.SalesOrderID;
 
 
+--3303 | COLLATE | 2022-10-20 | Uaychai Chotjaratwanich
+SELECT * FROM Person.Person 
+ORDER BY FirstName COLLATE SQL_Latin1_General_CP1_CS_AS ASC , LastName ASC; 
+UPDATE Person.Person SET FirstName = 'aaron' WHERE BusinessEntityID IN (5501,5492);
+
+
 --b375 | How it work | 2022-10-20 | Uaychai Chotjaratwanich
 SELECT a.SalesOrderID, a.ProductID, b.Name, a.UnitPrice, a.OrderQty, 
        a.UnitPrice * a.OrderQty AS CustomLineTotal 
