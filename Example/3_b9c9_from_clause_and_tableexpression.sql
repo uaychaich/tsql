@@ -29,14 +29,14 @@ SELECT FirstName, LastName FROM Person.Person;
 
 --ef67 | Column(s) with Column Alias | 2022-10-15 | Uaychai Chotjaratwanich
 SELECT FirstName, 
-       FirstName AS [First Name],
-       FirstName [First Name],
-       [First Name] = FirstName       
+       FirstName AS [First Name1],
+       FirstName [First Name2],
+       [First Name3] = FirstName
 FROM Person.Person;
 
 
---86f9 | Column(s) with Other Expression | 2022-10-15 | Uaychai Chotjaratwanich
-SELECT FirstName, LastName, 
+--86f9 | Column(s) with Other Expression | 2022-10-20 | Uaychai Chotjaratwanich
+SELECT FirstName, LastName AS [Last Name], 
        FirstName + LastName, 
        LEFT(FirstName,3),
        FirstName + 'Uaychai'
@@ -73,3 +73,11 @@ SELECT SalesOrderID, TerritoryID,
           ELSE 'Pacific'
        END AS Region2
 FROM Sales.SalesOrderHeader;
+
+
+--e072 | How it work | 2022-10-15 | Uaychai Chotjaratwanich
+SELECT FirstName, LastName AS [Last Name], 
+       FirstName + LastName, 
+       LEFT(FirstName,3),
+       FirstName + 'Uaychai'
+FROM Person.Person;
