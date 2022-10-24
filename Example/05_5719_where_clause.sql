@@ -34,3 +34,9 @@ WHERE name = N'FirstName' AND object_id =  OBJECT_ID('Person.Person');
 SELECT * FROM Person.Person 
 WHERE FirstName = 'kim' COLLATE SQL_Latin1_General_CP1_CI_AS 
 OR LastName = 'akers' COLLATE SQL_Latin1_General_CP1_CI_AS;
+
+
+--887a | WHERE for join two table | 2022-10-24 | Uaychai Chotjaratwanich
+SELECT a.SalesOrderID, a.OrderDate, a.OnlineOrderFlag, b.ProductID, b.UnitPrice, b.OrderQty, b.LineTotal 
+FROM Sales.SalesOrderHeader a, Sales.SalesOrderDetail b 
+WHERE a.OnlineOrderFlag = 1 AND a.SalesOrderID = b.SalesOrderID;
