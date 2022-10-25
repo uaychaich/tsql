@@ -49,3 +49,11 @@ SELECT SalesOrderID, TotalDue,
        FIRST_VALUE(TotalDue) OVER (ORDER BY TotalDue DESC) AS _FIRST_VALUE,
        LAST_VALUE(TotalDue) OVER(ORDER BY TotalDue DESC) AS _LAST_VALUE
 FROM Sales.SalesOrderHeader ORDER BY TotalDue DESC, SalesOrderID ASC;
+
+
+--c7fe | Consideration | 2022-10-21 | Uaychai Chotjaratwanich
+SELECT TerritoryID, SalesOrderID, TotalDue, 
+       SUM(TotalDue) OVER(ORDER BY TerritoryID, SalesOrderID) AS _SUM
+FROM Sales.SalesOrderHeader 
+WHERE SUM(TotalDue) OVER(ORDER BY TerritoryID, SalesOrderID) > 200000 
+ORDER BY TerritoryID, SalesOrderID;
