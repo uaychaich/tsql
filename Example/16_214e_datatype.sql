@@ -6,3 +6,7 @@
 --One Language String: CHAR VARCHAR TEXT
 --Multi Language String: NCHAR NVARCHAR NTEXT
 
+
+--8a29 | Example Exact Whole Number | 2022-12-06 | Uaychai Chotjaratwanich
+DECLARE @Var1 TINYINT = 222;
+SELECT @Var1;
