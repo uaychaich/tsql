@@ -23,3 +23,13 @@ DELETE #SalesOrderDetail
 OUTPUT  deleted.SalesOrderID, deleted.SalesOrderDetailID, deleted.OrderQty, deleted.UnitPrice, deleted.LineTotal
 FROM #SalesOrderDetail sod INNER JOIN #SalesOrderHeader soh ON sod.SalesOrderID = soh.SalesOrderID
 WHERE soh.TerritoryID = 5;
+
+
+--49ad | OUTPUT Clause im MERGE | 2022-12-17 | Uaychai Chotjaratwanich
+MERGE #Culture2 AS tg 
+USING #Culture AS src ON src.CultureID = tg.CultureID
+WHEN MATCHED THEN UPDATE SET tg.Name = src.Name 
+WHEN NOT MATCHED THEN INSERT(CultureID, [Name], ModifiedDate) VALUES(src.CultureID, src.Name, src.ModifiedDate)
+WHEN NOT MATCHED BY SOURCE THEN DELETE
+OUTPUT inserted.CultureID, inserted.Name, inserted.ModifiedDate,
+       deleted.CultureID, deleted.Name, deleted.ModifiedDate;
