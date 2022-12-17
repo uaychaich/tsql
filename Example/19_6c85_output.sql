@@ -6,7 +6,7 @@ SELECT * INTO #Culture2 FROM Production.Culture; TRUNCATE TABLE #Culture2;
 
 
 --e402 | OUTPUT Clause in INSERT | 2022-12-17 | Uaychai Chotjaratwanich
-INSERT #Culture2 OUTPUT inserted.CultureID, inserted.Name, inserted.ModifiedDate
+INSERT #Culture2 OUTPUT inserted.CultureID, inserted.Name, inserted.ModifiedDate 
 SELECT * FROM #Culture;
 
 
@@ -33,3 +33,9 @@ WHEN NOT MATCHED THEN INSERT(CultureID, [Name], ModifiedDate) VALUES(src.Culture
 WHEN NOT MATCHED BY SOURCE THEN DELETE
 OUTPUT inserted.CultureID, inserted.Name, inserted.ModifiedDate,
        deleted.CultureID, deleted.Name, deleted.ModifiedDate;
+
+
+--fb9f | Insert OUTPUT result to existed table | 2022-12-17 | Uaychai Chotjaratwanich
+SELECT * INTO #ResultInsert FROM Production.Culture; TRUNCATE TABLE #ResultInsert;
+INSERT #Culture2 OUTPUT inserted.CultureID, inserted.Name, inserted.ModifiedDate INTO #ResultInsert
+SELECT * FROM #Culture;
