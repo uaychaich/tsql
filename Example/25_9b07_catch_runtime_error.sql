@@ -35,9 +35,9 @@ BEGIN TRY
 END TRY
 BEGIN CATCH
     IF ERROR_NUMBER() = 2627
-        PRINT 'Do something';
+        PRINT 'Do something 1';
     ELSE IF ERROR_NUMBER() = 1500 
-        PRINT 'Do something';
+        PRINT 'Do something 2';
     ELSE
-        PRINT 'Do something';
+        PRINT 'Do something 3';
 END CATCH
