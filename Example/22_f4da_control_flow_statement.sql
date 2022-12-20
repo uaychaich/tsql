@@ -45,3 +45,9 @@ GO
 --a61a | WAITFOR | 2022-12-19 | Uaychai Chotjaratwanich
 WAITFOR DELAY '00:00:30';
 WAITFOR TIME '21:40:00';
+
+
+--9bdd | RETURN | 2022-12-20 | Uaychai Chotjaratwanich
+PRINT 'Command 1';
+RETURN
+PRINT 'Command 2';
